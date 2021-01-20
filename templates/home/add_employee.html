@@ -1,0 +1,65 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<div class="mainbox">
+    <h2>Добавление сотрудника в {{ context.dep_name }} отдел</h2>
+    <h3><u>Персональные данные</u></h3>
+    <div class="form_view">
+        <form action='{{ url_for('add_employee', dep_id=context.dep_id) }}' method="post">
+            <div class="group">
+                <lable for="emp_name">Имя сотрудника:</lable><br>
+                <input type="text" id="emp_name" name="emp_name" required>
+            </div>
+            <div class="group">
+                <lable for="emp_age">Возраст сотрудника:</lable><br>
+                <input type="number" id="emp_age" name="emp_age" min="18" max="100" required>
+            </div>
+            <div class="group">
+                <lable for="emp_position">Должность:</lable><br>
+                <input type="text" id="emp_position" name="emp_position" required>
+            </div>
+            <div class="group">
+                <lable for="emp_salary">Зарплата:</lable><br>
+                <input type="number" id="emp_salary" name="emp_salary" min="200" max="5000" required>
+            </div>
+            <p style="text-align: center">
+                <input type="submit" value="Отправить" class="button">
+                <input type="reset" value="Очистить" class="button">
+            </p>
+        </form>
+    </div>
+    <p style="margin-top: 30px">
+        <a href="{{ url_for('employees', dep_id=context.dep_id) }}">Назад к списку сотрудников</a>
+    </p>
+    <br>
+</div>
+<style>
+    .form_view {
+        width: 400px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        color: red;
+    }
+    form {
+        border: 1px solid silver;
+        border-radius: 15px;
+        padding: 30px 30px 10px 30px;
+        box-shadow: 0 0 silver, 0 5px 40px silver;
+    }
+    input {
+        width: 98%;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 7px;
+    }
+    .button {
+        width: 45%;
+        padding: 5px;
+        border-radius: 10px;
+    }
+</style>
+{% endblock %}

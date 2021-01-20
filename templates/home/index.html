@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<div class="mainbox">
+    <h2>Главная страница</h2>
+    <h3><u>Список департаментов</u></h3>
+    <div class="deps_view">
+        <ol>
+            {% for dep in context.departments %}
+                <li><a href="{{ url_for('employees', dep_id=dep['id']) }}">{{ dep['name'] }}</a></li>
+            {% endfor %}
+        </ol>
+    </div>
+    <br>
+</div>
+<style>
+    .deps_view {
+        width: 220px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        color: red;
+    }
+</style>
+{% endblock %}

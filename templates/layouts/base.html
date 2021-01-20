@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8">
+       <title>HR-Department - {{ context.page_title }}</title>
+       <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+       <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+   </head>
+   <body>
+       <header>
+           <h1>Отдел кадров</h1>
+           <hr>
+       </header>
+       <main>
+           {% block content %}
+           {% endblock %}
+       </main>
+       <footer>
+           <hr>
+           <h4>Copyright: &copy; MyCompany - Kyiv, 2021</h4>
+       </footer>
+   </body>
+</html>
